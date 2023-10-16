@@ -1,20 +1,14 @@
-<!DOCTYPE html>
+{%extends "product/base.html" %}
 {%load static%}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="{% static 'product/style.css'%}">
-</head>
-<body>
-<h1>Product</h1>
+
+
+{% block content%}
 <h2>
     {%for item in items %}
     <a href="{% url 'product:detail' item.id %}">
     id: {{item.id}} Имя: {{item.name}} Цена: {{item.price}} Описание: {{item.description}}<br/>
+        <img src="{{item.image.url}}">
     <a>
     {% endfor %}
 </h2>
-
-</body>
-</html>
+{% endblock content %}
